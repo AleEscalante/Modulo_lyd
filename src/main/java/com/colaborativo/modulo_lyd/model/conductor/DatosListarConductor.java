@@ -1,4 +1,4 @@
-package com.colaborativo.modulo_lyd.datos;
+package com.colaborativo.modulo_lyd.model.conductor;
 
 public record DatosListarConductor(Integer Id_conductor, String nombre_conductor, String licencia_vigente, String TWIC_card, Long experiencia, Carga_peligrosa permiso_carga_peligrosa, String tipo_camion, Estado estado){
     public DatosListarConductor(Conductor conductor) {

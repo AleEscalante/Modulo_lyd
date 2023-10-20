@@ -1,4 +1,4 @@
-package com.colaborativo.modulo_lyd.datos;
+package com.colaborativo.modulo_lyd.model.conductor;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

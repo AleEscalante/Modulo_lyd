@@ -1,6 +1,10 @@
 package com.colaborativo.modulo_lyd.controller;
 
-import com.colaborativo.modulo_lyd.datos.*;
+import com.colaborativo.modulo_lyd.model.conductor.Conductor;
+import com.colaborativo.modulo_lyd.model.conductor.DatosActualizarConductor;
+import com.colaborativo.modulo_lyd.model.conductor.DatosListarConductor;
+import com.colaborativo.modulo_lyd.model.conductor.DatosRegistrarConductor;
+import com.colaborativo.modulo_lyd.repository.ConductorRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
