@@ -39,7 +39,7 @@ import org.springframework.web.bind.annotation.*;
         }
 
         // desactivo al conductor
-        @DeleteMapping("/{id}") // en esta parte no se si se elimina por el id, por el TWIC_card, el nombre u otras cosa
+        @DeleteMapping("/{id}") // en esta parte no se si se elimina por el id, por el TWIC_card, el nombre_conductor u otras cosa
         public void eliminarConductor(@PathVariable Integer id) {
             Conductor conductor = conductorRepository.getReferenceById(id);
             conductor.desactivarConductor();

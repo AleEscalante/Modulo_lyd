@@ -16,7 +16,7 @@ public record DatosRegistrarConductor(
     Carga_peligrosa permiso_carga_peligrosa,
     @NotBlank
     String tipo_camion,
-    @NotNull
+    @NotBlank
     String numero_chasis,
     @NotNull
     Estado estado){

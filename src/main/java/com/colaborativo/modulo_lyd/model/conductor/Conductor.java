@@ -45,8 +45,8 @@ public class Conductor {
 
 //prueba para q no se actualiza sin nada que este nula
     public void actualizarDatosConductor(DatosActualizarConductor datosActualizarConductor) {
-        if (datosActualizarConductor.nombre() != null) {
-            this.nombre_conductor = datosActualizarConductor.nombre();
+        if (datosActualizarConductor.nombre_conductor() != null) {
+            this.nombre_conductor = datosActualizarConductor.nombre_conductor();
         }
         if (datosActualizarConductor.licencia_vigente() != null) {
             this.licencia_vigente = datosActualizarConductor.licencia_vigente();
@@ -54,7 +54,7 @@ public class Conductor {
         if (datosActualizarConductor.twic_card() != null) { // este no se si se debe de actualizar
             this.TWIC_card = datosActualizarConductor.twic_card();
         }
-        if (datosActualizarConductor.anhos_experiencia() != null) {
+        if (datosActualizarConductor.anhos_experiencia() != null) { // no se si pedian los años, pero eso es lo q entendi
             this.experiencia = datosActualizarConductor.anhos_experiencia();
         }
         if (datosActualizarConductor.tipo_camion() != null) {
