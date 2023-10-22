@@ -1,0 +1,1 @@
+ALTER TABLE conductores CHANGE TWIC_card TWICCard VARCHAR(100); #tengo error con el repository si no cambio el nombre
