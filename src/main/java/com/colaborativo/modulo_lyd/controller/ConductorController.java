@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 import com.colaborativo.modulo_lyd.model.conductor.Conductor;
@@ -86,7 +87,7 @@ public class ConductorController {
      * @return
      */
     @PutMapping
-    //@Transactional
+    @Transactional
     public ResponseEntity<?> actualizarConductor(@RequestBody @Valid DatosActualizarConductor datosActualizarConductor) {
 
         Conductor conductor = conductorRepository.getReferenceById(datosActualizarConductor.idConductor());

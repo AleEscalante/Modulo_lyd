@@ -6,7 +6,7 @@ package com.colaborativo.modulo_lyd.model.conductor;
  * Representa datos de un conductor utilizado para listar información.
  *
  * Cambios:
- * - Corregido el formato del nombre de las propiedades a camelCase para compatibilidad con Swagger.
+ * - Cambio en el formato del nombre de las propiedades a camelCase para compatibilidad con Swagger.
  */
 public record DatosListarConductor(
         Integer idConductor,
