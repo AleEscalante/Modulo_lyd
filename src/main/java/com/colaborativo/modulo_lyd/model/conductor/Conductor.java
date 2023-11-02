@@ -6,13 +6,24 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * @(#)Conductor.java 1.0 02/11/2023
+ *
+ * Clase que representa a un conductor en el sistema de gestión logística y distribución.
+ * Almacena información personal, métodos para actualizar y desactivar conductores.
+ *
+ * Cambios:
+ * - Documentando todos los metodos.
+ * - Mejorando el metodo actualizarDatosConductor para q reciva datos más dinámicos.
+ */
 @Table(name = "conductores")
 @Entity(name = "Conductor")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "Id_conductor")
+@EqualsAndHashCode(of = "idConductor")
 public class Conductor {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,40 +42,51 @@ public class Conductor {
     private Boolean conductorVigente;
 
 
+    /**
+     * Asigna valores procedentes del record DatosRegistrarConductor a un conductor
+     *
+     * @param datosRegistrarConductor Los datos del conductor a registrar.
+     */
     public Conductor(DatosRegistrarConductor datosRegistrarConductor) {
-
-        this.conductorVigente = true; // se vuelve un conductor Vigente por defecto
-        this.nombre_conductor = datosRegistrarConductor.nombre_conductor();
-        this.licenciaVigente = datosRegistrarConductor.licencia_vigente();
-        this.TWICCard = datosRegistrarConductor.twic_card();
-        this.experiencia = datosRegistrarConductor.anhos_experiencia();
-        this.tipo_camion = datosRegistrarConductor.tipo_camion();
-        this.numeroChasis = datosRegistrarConductor.numero_chasis();
-        this.permiso_carga_peligrosa = datosRegistrarConductor.permiso_carga_peligrosa();
+        this.conductorVigente = true;
+        this.nombre_conductor = datosRegistrarConductor.nombreConductor();
+        this.licenciaVigente = datosRegistrarConductor.licenciaVigente();
+        this.TWICCard = datosRegistrarConductor.twicCard();
+        this.experiencia = datosRegistrarConductor.anhosExperiencia();
+        this.tipo_camion = datosRegistrarConductor.tipoCamion();
+        this.numeroChasis = datosRegistrarConductor.numeroChasis();
+        this.permiso_carga_peligrosa = datosRegistrarConductor.permisoCargaPeligrosa();
         this.estado = datosRegistrarConductor.estado();
     }
 
-//prueba para q no se actualiza sin nada que este nula
+
+    /**
+     * Actualiza los datos del conductor con información dinámica, solo si los valores no son nulos.
+     *
+     * @param datosActualizarConductor Datos flexibles para la actualización del conductor.
+     */
     public void actualizarDatosConductor(DatosActualizarConductor datosActualizarConductor) {
-        if (datosActualizarConductor.nombre_conductor() != null) {
-            this.nombre_conductor = datosActualizarConductor.nombre_conductor();
+
+        if (datosActualizarConductor.nombreConductor() != null) {
+            this.nombre_conductor = datosActualizarConductor.nombreConductor();
         }
-        if (datosActualizarConductor.licencia_vigente() != null) {
-            this.licenciaVigente = datosActualizarConductor.licencia_vigente();
+        if (datosActualizarConductor.licenciaVigente() != null) {
+            this.licenciaVigente = datosActualizarConductor.licenciaVigente();
         }
-        if (datosActualizarConductor.twic_card() != null) { // este no se si se debe de actualizar
-            this.TWICCard = datosActualizarConductor.twic_card();
+        if (datosActualizarConductor.twicCard() != null) {
+            this.TWICCard = datosActualizarConductor.twicCard();
         }
-        if (datosActualizarConductor.anhos_experiencia() != null) { // no se si pedian los años, pero eso es lo q entendi
-            this.experiencia = datosActualizarConductor.anhos_experiencia();
+        if (datosActualizarConductor.anhosExperiencia() != null) {
+            this.experiencia = datosActualizarConductor.anhosExperiencia();
         }
-        if (datosActualizarConductor.tipo_camion() != null) {
-            this.tipo_camion = datosActualizarConductor.tipo_camion();
+        if (datosActualizarConductor.tipoCamion() != null) {
+            this.tipo_camion = datosActualizarConductor.tipoCamion();
         }
         if (datosActualizarConductor.estado() != null) {
             this.estado = datosActualizarConductor.estado();
         }
     }
+
     public void desactivarConductor() {
         this.conductorVigente = false;
     }
