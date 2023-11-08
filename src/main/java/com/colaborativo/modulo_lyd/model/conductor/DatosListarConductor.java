@@ -1,33 +1,33 @@
 package com.colaborativo.modulo_lyd.model.conductor;
 
 /**
- * @(#)DatosListarConductor.java 1.0 02/11/2023
+ * @(#)DatosListarConductor.java 1.1.0 08/11/2023
  *
  * Representa datos de un conductor utilizado para listar información.
  *
  * Cambios:
- * - Cambio en el formato del nombre de las propiedades a camelCase para compatibilidad con Swagger.
+ * - Se cambió el tipo de datos de 'experiencia' para su compatibilidad en la db.
  */
 public record DatosListarConductor(
         Integer idConductor,
         String nombreConductor,
         String licenciaVigente,
         String twicCard,
-        Long experiencia,
-        Carga_peligrosa permisoCargaPeligrosa,
+        Integer experiencia,
+        PermisoCargaPeligrosa permisoCargaPeligrosa,
         String tipoCamion,
         String numeroChasis,
         Estado estado
 ) {
     public DatosListarConductor(Conductor conductor) {
         this(
-                conductor.getId_conductor(),
-                conductor.getNombre_conductor(),
+                conductor.getIdConductor(),
+                conductor.getNombreConductor(),
                 conductor.getLicenciaVigente(),
-                conductor.getTWICCard(),
+                conductor.getTwicCard(),
                 conductor.getExperiencia(),
-                conductor.getPermiso_carga_peligrosa(),
-                conductor.getTipo_camion(),
+                conductor.getPermisoCargaPeligrosa(),
+                conductor.getTipoCamion(),
                 conductor.getNumeroChasis(),
                 conductor.getEstado()
         );

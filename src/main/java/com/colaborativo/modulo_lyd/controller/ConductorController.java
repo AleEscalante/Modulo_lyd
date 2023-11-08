@@ -20,13 +20,12 @@ import com.colaborativo.modulo_lyd.model.conductor.DatosRegistrarConductor;
 import com.colaborativo.modulo_lyd.repository.ConductorRepository;
 
 /**
- * @(#)ConductorController.java 1.0 02/11/2023
+ * @(#)ConductorController.java 1.1.0 08/11/2023
  *
  * Controlador para la gestión de pedidos en el módulo de logística y distribución.
  *
  * Cambios:
- * - Documentando todos los metodos.
- * - Agregando los mensajes de retorno en errores para el metodo post y put.
+ * -Se agregó funcionalidad para mostrar mensajes en el método Delete.
  */
 
 @RestController
@@ -50,7 +49,7 @@ public class ConductorController {
                         conductorRepository.existsByLicenciaVigente(datosRegistrarConductor.licenciaVigente()) //condicion
                                 ? "Error: Ya existe un conductor con esta licencia vigente." // este se activa si la condicion es true
                                 : null, // y este retorna esto si es false
-                        conductorRepository.existsByTWICCard(datosRegistrarConductor.twicCard())
+                        conductorRepository.existsByTwicCard(datosRegistrarConductor.twicCard())
                                 ? "Error: Ya existe un conductor con este twicCard."
                                 : null,
                         conductorRepository.existsByNumeroChasis(datosRegistrarConductor.numeroChasis())
@@ -75,7 +74,7 @@ public class ConductorController {
      * @return Una página de datos de conductores Vigentes.
      */
     @GetMapping
-    public Page<DatosListarConductor> datosListarConductors(@PageableDefault(size = 10) Pageable paginacion) {
+    public Page<DatosListarConductor> datosListarConductores(@PageableDefault(size = 10) Pageable paginacion) {
         return conductorRepository.findByConductorVigenteTrue(paginacion).map(DatosListarConductor::new);
     }
 
@@ -98,7 +97,7 @@ public class ConductorController {
                             conductorRepository.existsByLicenciaVigente(datosActualizarConductor.licenciaVigente())
                                     ? "Error: Ya existe un conductor con esta licencia vigente."
                                     : null,
-                            conductorRepository.existsByTWICCard(datosActualizarConductor.twicCard())
+                            conductorRepository.existsByTwicCard(datosActualizarConductor.twicCard())
                                     ? "Error: Ya existe un conductor con este twicCard."
                                     : null)
                     .filter(lista -> lista != null).collect(Collectors.toList());
@@ -118,12 +117,19 @@ public class ConductorController {
      * Hace un Borrado Superficial (Soft Delete o Logical Delete).
      * Este método busca internamente el ID del conductor Vigente en ConductorRepository y lo desactiva con el método desactivarConductor de Conductor.
      *
-     * @param id Identificador del conducto a buscar
+     * @param idConductor Identificador del conducto a buscar
+     * @return
      */
-    @DeleteMapping("/{id}")
-    public void eliminarConductor(@PathVariable Integer id) {
-        Conductor conductor = conductorRepository.getReferenceById(id);
-        conductor.desactivarConductor();
+    @DeleteMapping("/{idConductor}")
+    @Transactional
+    public ResponseEntity<String> eliminarConductor(@PathVariable Integer idConductor) {
+        Conductor conductor = conductorRepository.getReferenceById(idConductor);
+        if (conductorRepository.existsById(idConductor)) {
+            conductor.desactivarConductor();
+            return ResponseEntity.ok("El conductor con ID " + idConductor + " ha sido eliminado. El nombre asociado a este ID es: " + conductor.getNombreConductor());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró ningún conductor con el ID: " + idConductor);
+        }
     }
 
 

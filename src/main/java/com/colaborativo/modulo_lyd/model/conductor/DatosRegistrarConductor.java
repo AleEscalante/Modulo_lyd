@@ -4,12 +4,12 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 /**
- * @(#)DatosRegistrarConductor.java 1.0 02/11/2023
+ * @(#)DatosRegistrarConductor.java 1.1.0 08/11/2023
  *
  * Gestiona los registros de datos de un conductor en el sistema.
  *
  * Cambios:
- * - Corregido el formato del nombre de las propiedades a camelCase.
+ * - Se cambió el tipo de datos de 'experiencia' para su compatibilidad en la db.
  */
 public record DatosRegistrarConductor(
         @NotBlank
@@ -18,9 +18,9 @@ public record DatosRegistrarConductor(
         String licenciaVigente,
         @NotBlank
         String twicCard,
-        Long anhosExperiencia,
+        Integer experiencia,
         @NotNull
-        Carga_peligrosa permisoCargaPeligrosa,
+        PermisoCargaPeligrosa permisoCargaPeligrosa,
         @NotBlank
         String tipoCamion,
         @NotBlank

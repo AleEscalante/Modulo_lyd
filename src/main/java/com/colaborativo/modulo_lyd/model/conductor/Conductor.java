@@ -7,14 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * @(#)Conductor.java 1.0 02/11/2023
+ * @(#)Conductor.java 1.1.0 08/11/2023
  *
  * Clase que representa a un conductor en el sistema de gestión logística y distribución.
  * Almacena información personal, métodos para actualizar y desactivar conductores.
  *
  * Cambios:
- * - Documentando todos los metodos.
- * - Mejorando el metodo actualizarDatosConductor para q reciva datos más dinámicos.
+ * Se modificó el formato de las propiedades a camelCase para que sean compatibles con Swagger, específicamente en la interface del método 'get' de swagger.
+ * Se cambió de nombre y se agregó la anotacion @Enumerated(EnumType.STRING) al enum PermisoCargaPeligrosa para su compatibilidad en la db
  */
 @Table(name = "conductores")
 @Entity(name = "Conductor")
@@ -24,17 +24,18 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "idConductor")
 public class Conductor {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id_conductor;
+    private Integer idConductor;
 
-    private String nombre_conductor;
+    private String nombreConductor;
     private String licenciaVigente;
-    private String TWICCard;
-    private Long experiencia;
-    private Carga_peligrosa permiso_carga_peligrosa;
-    private String tipo_camion;
+    private String twicCard;
+    private Integer experiencia;
+
+    @Enumerated(EnumType.STRING)
+    private PermisoCargaPeligrosa permisoCargaPeligrosa;
+    private String tipoCamion;
     private String numeroChasis;
 
     @Enumerated(EnumType.STRING)
@@ -49,13 +50,13 @@ public class Conductor {
      */
     public Conductor(DatosRegistrarConductor datosRegistrarConductor) {
         this.conductorVigente = true;
-        this.nombre_conductor = datosRegistrarConductor.nombreConductor();
+        this.nombreConductor = datosRegistrarConductor.nombreConductor();
         this.licenciaVigente = datosRegistrarConductor.licenciaVigente();
-        this.TWICCard = datosRegistrarConductor.twicCard();
-        this.experiencia = datosRegistrarConductor.anhosExperiencia();
-        this.tipo_camion = datosRegistrarConductor.tipoCamion();
+        this.twicCard = datosRegistrarConductor.twicCard();
+        this.experiencia = datosRegistrarConductor.experiencia();
+        this.tipoCamion = datosRegistrarConductor.tipoCamion();
         this.numeroChasis = datosRegistrarConductor.numeroChasis();
-        this.permiso_carga_peligrosa = datosRegistrarConductor.permisoCargaPeligrosa();
+        this.permisoCargaPeligrosa = datosRegistrarConductor.permisoCargaPeligrosa();
         this.estado = datosRegistrarConductor.estado();
     }
 
@@ -68,19 +69,22 @@ public class Conductor {
     public void actualizarDatosConductor(DatosActualizarConductor datosActualizarConductor) {
 
         if (datosActualizarConductor.nombreConductor() != null) {
-            this.nombre_conductor = datosActualizarConductor.nombreConductor();
+            this.nombreConductor = datosActualizarConductor.nombreConductor();
         }
         if (datosActualizarConductor.licenciaVigente() != null) {
             this.licenciaVigente = datosActualizarConductor.licenciaVigente();
         }
         if (datosActualizarConductor.twicCard() != null) {
-            this.TWICCard = datosActualizarConductor.twicCard();
+            this.twicCard = datosActualizarConductor.twicCard();
         }
-        if (datosActualizarConductor.anhosExperiencia() != null) {
-            this.experiencia = datosActualizarConductor.anhosExperiencia();
+        if (datosActualizarConductor.experiencia() != null) {
+            this.experiencia = datosActualizarConductor.experiencia();
         }
         if (datosActualizarConductor.tipoCamion() != null) {
-            this.tipo_camion = datosActualizarConductor.tipoCamion();
+            this.tipoCamion = datosActualizarConductor.tipoCamion();
+        }
+        if (datosActualizarConductor.permisoCargaPeligrosa() != null) {
+            this.permisoCargaPeligrosa = datosActualizarConductor.permisoCargaPeligrosa();
         }
         if (datosActualizarConductor.estado() != null) {
             this.estado = datosActualizarConductor.estado();

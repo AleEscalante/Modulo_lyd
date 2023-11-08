@@ -39,9 +39,9 @@
 		</profile>
 
 		<profile>
-			<id>dev</id>
+			<id>tyrone</id>
 			<properties>
-				<activatedProperties>dev</activatedProperties>
+				<activatedProperties>TyronePilayMenendez</activatedProperties>
 			</properties>
 		</profile>
 

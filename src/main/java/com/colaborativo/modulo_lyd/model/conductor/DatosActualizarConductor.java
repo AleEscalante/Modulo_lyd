@@ -3,13 +3,12 @@ package com.colaborativo.modulo_lyd.model.conductor;
 import jakarta.validation.constraints.NotNull;
 
 /**
- * @(#)DatosActualizarConductor.java 1.0 02/11/2023
+ * @(#)DatosActualizarConductor.java 1.1.0 08/11/2023
  *
  * Gestiona la actualización de datos de un conductor en el sistema.
  *
  * Cambios:
- * - Corregido el formato del nombre de las propiedades a camelCase.
- * - Eliminando las anotaciones para que reciva datos más dinámicos.
+ * - Se cambió el tipo de datos de 'experiencia' para su compatibilidad a la db.
  */
 public record DatosActualizarConductor(
         @NotNull
@@ -17,7 +16,8 @@ public record DatosActualizarConductor(
         String nombreConductor,
         String licenciaVigente,
         String twicCard,
-        Long anhosExperiencia,
+        Integer experiencia,
+        PermisoCargaPeligrosa permisoCargaPeligrosa,
         String tipoCamion,
         Estado estado) {
 }
