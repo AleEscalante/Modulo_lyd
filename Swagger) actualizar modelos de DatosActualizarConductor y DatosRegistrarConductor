@@ -1,0 +1,53 @@
+[33mcommit 4f2b2d140fc4b465095c57b36b7112f7ef05248a[m[33m ([m[1;36mHEAD -> [m[1;32mfeacture-conductores[m[33m)[m
+Author: Tyrone Pilay <tyronepilay11@gmail.com>
+Date:   Fri Oct 20 20:41:54 2023 -0500
+
+    feat(feature-conductores:Swagger): actualizar modelos de DatosActualizarConductor y DatosRegistrarConductor
+    
+    - Cambié el nombre del campo 'nombre' a 'nombre_conductor' en DatosActualizarConductor.
+    - Cambié las anotaciones de '@NotNull' a '@NotBlank' en 'numero_chasis' en DatosRegistrarConductor.
+    - Realicé ajustes en el archivo pom
+
+[33mcommit d9db49a63e449ba20f074cb439edb590421742ca[m[33m ([m[1;31morigin/feacture-conductores[m[33m)[m
+Author: Alejandro Escalante <alexalante2@gmail.com>
+Date:   Fri Oct 20 14:39:48 2023 -0600
+
+    feat(feature-conductores:Swagger):
+    Se revisaron y adaptaron los cambios propuestos para profiles, ahora se cuenta con documentacion base para los endpoints.
+    
+    Path para visualizar UI de Swagger: /swagger-ui.html
+
+[33mcommit df2fbd61475e1aba3da7f273983d38c256e96d07[m
+Author: Tyrone Pilay <tyronepilay11@gmail.com>
+Date:   Thu Oct 19 16:35:26 2023 -0500
+
+    feat(feature-conductoresEndpoints-profiles):
+    Esto es una prueba en el que se han agregado los siguientes parámetros:
+    
+    Perfiles de Spring: Se ha incorporado la posibilidad de utilizar perfiles de Spring en la aplicación. Dos perfiles iniciales, 'aut' y 'prod', se han agregado para ilustrar cómo funcionan. El perfil 'aut' tiene su configuración en  y se utiliza para inicializar el proyecto en otra máquina. Este perfil crea la base de datos de forma automática, pero la deja en un estado inmovilizado. El perfil 'prod' se utiliza para ejecutar la aplicación en un entorno de producción y permite realizar cambios en la base de datos. Para cambiar de perfil y ejecutar el proyecto, utiliza los siguientes comandos en la consola:
+    
+       -Para el perfil 'aut':
+         (./mvnw spring-boot:run -Dspring-boot.run.profiles=aut)
+    
+       - Para el perfil 'prod':
+         (./mvnw spring-boot:run -Dspring-boot.run.profiles=prod)
+    
+    Prueba de Endpoints: Se ha agregado una prueba de endpoint para registrar, actualizar, eliminar y listar conductores. Esta funcionalidad está sujeta a cambios, pero es adecuada para una prueba inicial
+
+[33mcommit 741ff93891e684b3e8a38c3c52547c941528ce7e[m[33m ([m[1;31morigin/backend[m[33m, [m[1;32mbackend[m[33m)[m
+Author: Alejandro Escalante <alexalante2@gmail.com>
+Date:   Wed Oct 4 06:21:07 2023 -0600
+
+    Inicializar proyecto Spring Boot
+    
+    Este commit marca la inicialización del proyecto Spring Boot. Se incluyen las configuraciones iniciales del proyecto, las dependencias del proyecto, la estructura de directorios y la primera versión de la migración de la base de datos.
+    - Configuración de Spring Boot.
+    - Dependencias y plugins del proyecto.
+    - Estructura de directorios básica.
+    - Primera versión de la migración de la base de datos.
+
+[33mcommit f4c0e21b5a3d7f6da0417829e151f0dd5195ee68[m
+Author: Alejandro Escalante <114047529+AleEscalante@users.noreply.github.com>
+Date:   Wed Oct 4 06:01:34 2023 -0600
+
+    Initial commit

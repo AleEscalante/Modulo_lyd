@@ -1,7 +1,35 @@
 package com.colaborativo.modulo_lyd.model.conductor;
 
-public record DatosListarConductor(Integer Id_conductor, String nombre_conductor, String licencia_vigente, String TWIC_card, Long experiencia, Carga_peligrosa permiso_carga_peligrosa, String tipo_camion, Estado estado){
+/**
+ * @(#)DatosListarConductor.java 1.1.0 08/11/2023
+ *
+ * Representa datos de un conductor utilizado para listar información.
+ *
+ * Cambios:
+ * - Se cambió el tipo de datos de 'experiencia' para su compatibilidad en la db.
+ */
+public record DatosListarConductor(
+        Integer idConductor,
+        String nombreConductor,
+        String licenciaVigente,
+        String twicCard,
+        Integer experiencia,
+        PermisoCargaPeligrosa permisoCargaPeligrosa,
+        String tipoCamion,
+        String numeroChasis,
+        Estado estado
+) {
     public DatosListarConductor(Conductor conductor) {
-        this(conductor.getId_conductor(), conductor.getNombre_conductor(), conductor.getLicencia_vigente(), conductor.getTWIC_card(), conductor.getExperiencia(), conductor.getPermiso_carga_peligrosa(), conductor.getTipo_camion(), conductor.getEstado());
+        this(
+                conductor.getIdConductor(),
+                conductor.getNombreConductor(),
+                conductor.getLicenciaVigente(),
+                conductor.getTwicCard(),
+                conductor.getExperiencia(),
+                conductor.getPermisoCargaPeligrosa(),
+                conductor.getTipoCamion(),
+                conductor.getNumeroChasis(),
+                conductor.getEstado()
+        );
     }
 }

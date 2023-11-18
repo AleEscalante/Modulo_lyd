@@ -20,13 +20,14 @@
 		<java.version>17</java.version>
 	</properties>
 	<profiles>
+
 		<profile>
-			<id>dev</id>
+			<id>aut</id>
 			<properties>
 				<activatedProperties>aut</activatedProperties>
 			</properties>
-
 		</profile>
+
 		<profile>
 			<id>prod</id>
 			<properties>
@@ -34,7 +35,14 @@
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>  <!--este va a ser el perfil por defecto -->
-			</activation> <!--	para cambiar de perfil se escribe ./mvnw spring-boot:run -Dspring-boot.run.profiles=prod-->
+			</activation> <!--	para cambiar de perfil se escribe ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev-->
+		</profile>
+
+		<profile>
+			<id>tyrone</id>
+			<properties>
+				<activatedProperties>TyronePilayMenendez</activatedProperties>
+			</properties>
 		</profile>
 
 		<profile>

@@ -1,10 +1,24 @@
 package com.colaborativo.modulo_lyd.repository;
 
-import com.colaborativo.modulo_lyd.model.conductor.Conductor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.colaborativo.modulo_lyd.model.conductor.Conductor;
 
+/**
+ * @(#)ConductorRepository.java 1.1.0 08/11/2023
+ *
+ * Funcionalidad de la resolución automática de consultas de Spring Data JPA.
+ *
+ * Cambios:
+ * Se ajustó la función 'existsByTwicCard' para que funcione correctamente después de cambiar el nombre en la clase 'Conductor'.
+ */
 public interface ConductorRepository extends JpaRepository<Conductor, Integer> {
-        Page<Conductor> findByConductorVigenteTrue(Pageable paginacion);
+    Page<Conductor> findByConductorVigenteTrue(Pageable paginacion);
+
+    boolean existsByLicenciaVigente(String licenciaVigente);
+
+    boolean existsByTwicCard(String twicCard);
+
+    boolean existsByNumeroChasis(String numeroChasis);
 }
