@@ -1,0 +1,2 @@
+ALTER TABLE movimientos
+    ADD COLUMN Activo TINYINT(1) NOT NULL;

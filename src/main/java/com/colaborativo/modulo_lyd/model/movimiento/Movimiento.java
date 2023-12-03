@@ -11,26 +11,27 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id_movimiento")
+@EqualsAndHashCode(of = "idMovimiento")
 public class Movimiento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_movimiento;
+    @Column(name = "Id_movimiento")
+    private Long idMovimiento;
 
-    private String tipo_movimiento;
+    private String tipoMovimiento;
     private String descripcion;
     private Boolean activo;
 
     public Movimiento(DatosRegistroMovimiento datosRegistroMovimiento){
-        this.tipo_movimiento = datosRegistroMovimiento.tipo_movimiento();
+        this.tipoMovimiento = datosRegistroMovimiento.tipo_movimiento();
         this.descripcion = datosRegistroMovimiento.descripcion();
         this.activo = true;
     }
 
     public void actualizarDatos(DatosActualizarMovimiento datosActualizarMovimiento) {
         if (datosActualizarMovimiento.tipo_movimiento() != null) {
-            this.tipo_movimiento = datosActualizarMovimiento.tipo_movimiento();
+            this.tipoMovimiento = datosActualizarMovimiento.tipo_movimiento();
         }
         if (datosActualizarMovimiento.descripcion() != null) {
             this.descripcion = datosActualizarMovimiento.descripcion();

@@ -6,10 +6,10 @@ package com.colaborativo.modulo_lyd.model.conductor;
  * Representa datos de un conductor utilizado para listar información.
  *
  * Cambios:
- * - Se cambió el tipo de datos de 'experiencia' para su compatibilidad en la db.
+ * - se cambio el tipo de dato de ID.
  */
 public record DatosListarConductor(
-        Integer idConductor,
+        Long idConductor,
         String nombreConductor,
         String licenciaVigente,
         String twicCard,
