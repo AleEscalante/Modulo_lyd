@@ -122,7 +122,7 @@ public class ConductorController {
      */
     @DeleteMapping("/{idConductor}")
     @Transactional
-    public ResponseEntity<String> eliminarConductor(@PathVariable Integer idConductor) {
+    public ResponseEntity<String> eliminarConductor(@PathVariable Long idConductor) {
         Conductor conductor = conductorRepository.getReferenceById(idConductor);
         if (conductorRepository.existsById(idConductor)) {
             conductor.desactivarConductor();

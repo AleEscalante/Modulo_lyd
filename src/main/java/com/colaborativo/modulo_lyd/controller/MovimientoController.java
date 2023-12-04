@@ -27,7 +27,7 @@ public class MovimientoController {
         Movimiento movimiento = movimientoRepository.save(new Movimiento(datosRegistroMovimiento));
         DatosRespuestaMovimientos datosRespuestaMovimientos = new DatosRespuestaMovimientos(movimiento);
 
-        URI url = uriComponentsBuilder.path("/movimientos/{id}").buildAndExpand(movimiento.getId_movimiento()).toUri();
+        URI url = uriComponentsBuilder.path("/movimientos/{idMovimiento}").buildAndExpand(movimiento.getIdMovimiento()).toUri();
         return ResponseEntity.created(url).body(datosRespuestaMovimientos);
     }
 
@@ -36,9 +36,9 @@ public class MovimientoController {
         return ResponseEntity.ok(movimientoRepository.findByActivoTrue(paginacion).map(DatosListarMovimientos::new));
     }
 
-    @GetMapping("/{id_movimiento}")
-    public ResponseEntity<DatosRespuestaMovimientos> retornarDatosMovimiento(@PathVariable Long id_movimiento) {
-        Movimiento movimiento = movimientoRepository.getReferenceById(id_movimiento);
+    @GetMapping("/{idMovimiento}")
+    public ResponseEntity<DatosRespuestaMovimientos> retornarDatosMovimiento(@PathVariable Long idMovimiento) {
+        Movimiento movimiento = movimientoRepository.getReferenceById(idMovimiento);
         var datosMovimiento = new DatosRespuestaMovimientos(movimiento);
         return ResponseEntity.ok(datosMovimiento);
     }
@@ -46,16 +46,16 @@ public class MovimientoController {
     @PutMapping
     @Transactional
     public ResponseEntity<DatosRespuestaMovimientos> actualizarMovimiento(@RequestBody @Valid DatosActualizarMovimiento datosActualizarMovimiento) {
-        Movimiento movimiento = movimientoRepository.getReferenceById(datosActualizarMovimiento.id_movimiento());
+        Movimiento movimiento = movimientoRepository.getReferenceById(datosActualizarMovimiento.idMovimiento());
         movimiento.actualizarDatos(datosActualizarMovimiento);
 
         return ResponseEntity.ok(new DatosRespuestaMovimientos(movimiento));
     }
 
-    @DeleteMapping("/{id_movimiento}")
+    @DeleteMapping("/{idMovimiento}")
     @Transactional
-    public ResponseEntity<Movimiento> eliminarMovimiento(@PathVariable Long id_movimiento) {
-        Movimiento movimiento = movimientoRepository.getReferenceById(id_movimiento);
+    public ResponseEntity<Movimiento> eliminarMovimiento(@PathVariable Long idMovimiento) {
+        Movimiento movimiento = movimientoRepository.getReferenceById(idMovimiento);
         movimiento.desactivarMovimiento();
 
         return ResponseEntity.noContent().build();

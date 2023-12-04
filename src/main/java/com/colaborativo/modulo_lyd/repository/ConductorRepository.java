@@ -1,5 +1,6 @@
 package com.colaborativo.modulo_lyd.repository;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,7 +14,7 @@ import com.colaborativo.modulo_lyd.model.conductor.Conductor;
  * Cambios:
  * Se ajustó la función 'existsByTwicCard' para que funcione correctamente después de cambiar el nombre en la clase 'Conductor'.
  */
-public interface ConductorRepository extends JpaRepository<Conductor, Integer> {
+public interface ConductorRepository extends JpaRepository<Conductor, Long> {
     Page<Conductor> findByConductorVigenteTrue(Pageable paginacion);
 
     boolean existsByLicenciaVigente(String licenciaVigente);

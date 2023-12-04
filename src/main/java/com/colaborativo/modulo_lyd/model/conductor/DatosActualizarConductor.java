@@ -12,7 +12,7 @@ import jakarta.validation.constraints.NotNull;
  */
 public record DatosActualizarConductor(
         @NotNull
-        Integer idConductor,
+        Long idConductor,
         String nombreConductor,
         String licenciaVigente,
         String twicCard,
