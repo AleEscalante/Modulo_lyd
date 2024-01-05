@@ -1,4 +1,6 @@
-package com.colaborativo.modulo_lyd.model.contenedores;
+package com.colaborativo.modulo_lyd.model;
+
+import com.colaborativo.modulo_lyd.enums.EstadoDisponibilidad;
 
 public record DatosRegistrarContenedores(
         String codigoContenedor,

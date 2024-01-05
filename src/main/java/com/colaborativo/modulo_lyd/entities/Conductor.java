@@ -1,5 +1,9 @@
-package com.colaborativo.modulo_lyd.model.conductor;
+package com.colaborativo.modulo_lyd.entities;
 
+import com.colaborativo.modulo_lyd.enums.Estado;
+import com.colaborativo.modulo_lyd.enums.PermisoCargaPeligrosa;
+import com.colaborativo.modulo_lyd.model.DatosActualizarConductor;
+import com.colaborativo.modulo_lyd.model.DatosRegistrarConductor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

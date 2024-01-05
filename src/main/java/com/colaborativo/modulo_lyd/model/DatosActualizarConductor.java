@@ -1,5 +1,7 @@
-package com.colaborativo.modulo_lyd.model.conductor;
+package com.colaborativo.modulo_lyd.model;
 
+import com.colaborativo.modulo_lyd.enums.Estado;
+import com.colaborativo.modulo_lyd.enums.PermisoCargaPeligrosa;
 import jakarta.validation.constraints.NotNull;
 
 /**

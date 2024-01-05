@@ -1,10 +1,8 @@
 package com.colaborativo.modulo_lyd.controller;
 
-import com.colaborativo.modulo_lyd.model.conductor.Conductor;
-import com.colaborativo.modulo_lyd.model.despacho.DatosListarDespacho;
-import com.colaborativo.modulo_lyd.model.despacho.DatosRegistrarDespacho;
-import com.colaborativo.modulo_lyd.model.despacho.Despacho;
-import com.colaborativo.modulo_lyd.model.movimiento.Movimiento;
+import com.colaborativo.modulo_lyd.model.DatosListarDespacho;
+import com.colaborativo.modulo_lyd.model.DatosRegistrarDespacho;
+import com.colaborativo.modulo_lyd.entities.Despacho;
 import com.colaborativo.modulo_lyd.repository.ConductorRepository;
 import com.colaborativo.modulo_lyd.repository.DespachoRepository;
 import com.colaborativo.modulo_lyd.repository.InventarioContenedoresRepository;
@@ -20,8 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -63,7 +59,7 @@ public class DespachoController {
                                 ? "Contenedor encontrado"
                                 : "Error: Registro de inventario no encontrado."
                 )
-                .filter(listaError -> listaError.startsWith("Error:"))  // Filtrar solo los mensajes que no comienzan con "Error:"
+                .filter(listaError -> listaError.startsWith("Error:"))  // Filtrar solo los mensajes que comienzan con "Error:"
                 .collect(Collectors.toList());
 
         if (!listErrorKeys.isEmpty()) {

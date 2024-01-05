@@ -1,4 +1,6 @@
-package com.colaborativo.modulo_lyd.model.inventarioContenedores;
+package com.colaborativo.modulo_lyd.model;
+
+import com.colaborativo.modulo_lyd.enums.EstadoDeCarga;
 
 import java.time.LocalDateTime;
 

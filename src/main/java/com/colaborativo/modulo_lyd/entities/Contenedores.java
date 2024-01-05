@@ -1,6 +1,7 @@
-package com.colaborativo.modulo_lyd.model.contenedores;
+package com.colaborativo.modulo_lyd.entities;
 
-import com.colaborativo.modulo_lyd.model.conductor.DatosActualizarConductor;
+import com.colaborativo.modulo_lyd.enums.EstadoDisponibilidad;
+import com.colaborativo.modulo_lyd.model.DatosRegistrarContenedores;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

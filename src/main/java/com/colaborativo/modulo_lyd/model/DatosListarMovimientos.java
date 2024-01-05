@@ -1,4 +1,6 @@
-package com.colaborativo.modulo_lyd.model.movimiento;
+package com.colaborativo.modulo_lyd.model;
+
+import com.colaborativo.modulo_lyd.entities.Movimiento;
 
 public record DatosListarMovimientos(Long idMovimiento, String tipo_movimiento, String descripcion) {
 
