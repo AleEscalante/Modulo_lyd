@@ -1,6 +1,10 @@
 package com.colaborativo.modulo_lyd.controller;
 
-import com.colaborativo.modulo_lyd.model.movimiento.*;
+import com.colaborativo.modulo_lyd.entities.Movimiento;
+import com.colaborativo.modulo_lyd.model.DatosActualizarMovimiento;
+import com.colaborativo.modulo_lyd.model.DatosListarMovimientos;
+import com.colaborativo.modulo_lyd.model.DatosRegistroMovimiento;
+import com.colaborativo.modulo_lyd.model.DatosRespuestaMovimientos;
 import com.colaborativo.modulo_lyd.repository.MovimientoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

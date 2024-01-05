@@ -1,7 +1,7 @@
 package com.colaborativo.modulo_lyd.controller;
 
-import com.colaborativo.modulo_lyd.model.inventarioContenedores.DatosRegistrarInventarioContenedores;
-import com.colaborativo.modulo_lyd.model.inventarioContenedores.InventarioContenedores;
+import com.colaborativo.modulo_lyd.model.DatosRegistrarInventarioContenedores;
+import com.colaborativo.modulo_lyd.entities.InventarioContenedores;
 import com.colaborativo.modulo_lyd.repository.ContenedoresRepository;
 import com.colaborativo.modulo_lyd.repository.InventarioContenedoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/inventarioContenedores")

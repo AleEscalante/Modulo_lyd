@@ -1,5 +1,7 @@
-package com.colaborativo.modulo_lyd.model.inventarioContenedores;
+package com.colaborativo.modulo_lyd.entities;
 
+import com.colaborativo.modulo_lyd.enums.EstadoDeCarga;
+import com.colaborativo.modulo_lyd.model.DatosRegistrarInventarioContenedores;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

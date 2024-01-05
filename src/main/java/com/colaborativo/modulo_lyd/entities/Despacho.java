@@ -1,17 +1,17 @@
-package com.colaborativo.modulo_lyd.model.despacho;
+package com.colaborativo.modulo_lyd.entities;
 
-import com.colaborativo.modulo_lyd.model.conductor.DatosActualizarConductor;
+import com.colaborativo.modulo_lyd.model.DatosRegistrarDespacho;
+import com.colaborativo.modulo_lyd.enums.TipoDeCarga;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 /**
- * @(#)Despacho.java 1.0.0 26/11/2023
+ * {@code @(#)Despacho.java} 1.0.0 26/11/2023
  *
  * Clase que representa a Despacho en el sistema de gestión logística y distribución.
  * Registra información a Despacho.
@@ -31,7 +31,10 @@ public class Despacho {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_despacho")
     private Long idDespacho;
-
+//
+//    @ManyToOne
+//    @JoinColumn(name = "Id_movimiento")
+//    private Movimiento idMovimiento;
     @Column(name = "Id_movimiento")
     private Long idMovimiento;
 

@@ -13,10 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
-import com.colaborativo.modulo_lyd.model.conductor.Conductor;
-import com.colaborativo.modulo_lyd.model.conductor.DatosActualizarConductor;
-import com.colaborativo.modulo_lyd.model.conductor.DatosListarConductor;
-import com.colaborativo.modulo_lyd.model.conductor.DatosRegistrarConductor;
+import com.colaborativo.modulo_lyd.entities.Conductor;
+import com.colaborativo.modulo_lyd.model.DatosActualizarConductor;
+import com.colaborativo.modulo_lyd.model.DatosListarConductor;
+import com.colaborativo.modulo_lyd.model.DatosRegistrarConductor;
 import com.colaborativo.modulo_lyd.repository.ConductorRepository;
 
 /**

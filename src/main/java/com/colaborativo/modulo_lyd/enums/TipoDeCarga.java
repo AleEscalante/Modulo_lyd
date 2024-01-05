@@ -1,4 +1,4 @@
-package com.colaborativo.modulo_lyd.model.despacho;
+package com.colaborativo.modulo_lyd.enums;
 
 public enum TipoDeCarga {
     Pesada,

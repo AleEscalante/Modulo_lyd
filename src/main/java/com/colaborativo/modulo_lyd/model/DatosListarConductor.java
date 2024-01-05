@@ -1,4 +1,8 @@
-package com.colaborativo.modulo_lyd.model.conductor;
+package com.colaborativo.modulo_lyd.model;
+
+import com.colaborativo.modulo_lyd.entities.Conductor;
+import com.colaborativo.modulo_lyd.enums.Estado;
+import com.colaborativo.modulo_lyd.enums.PermisoCargaPeligrosa;
 
 /**
  * @(#)DatosListarConductor.java 1.1.0 08/11/2023

@@ -1,5 +1,7 @@
-package com.colaborativo.modulo_lyd.model.movimiento;
+package com.colaborativo.modulo_lyd.entities;
 
+import com.colaborativo.modulo_lyd.model.DatosActualizarMovimiento;
+import com.colaborativo.modulo_lyd.model.DatosRegistroMovimiento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -22,6 +24,9 @@ public class Movimiento {
     private String tipoMovimiento;
     private String descripcion;
     private Boolean activo;
+//
+//    @OneToMany(mappedBy = "movimientos", cascade = CascadeType.ALL)
+//    private List<Despacho> despachos = new ArrayList<>();
 
     public Movimiento(DatosRegistroMovimiento datosRegistroMovimiento){
         this.tipoMovimiento = datosRegistroMovimiento.tipo_movimiento();

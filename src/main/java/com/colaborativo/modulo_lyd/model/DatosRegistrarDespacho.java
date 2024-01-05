@@ -1,10 +1,12 @@
-package com.colaborativo.modulo_lyd.model.despacho;
+package com.colaborativo.modulo_lyd.model;
 
-import java.sql.Date;
+import com.colaborativo.modulo_lyd.enums.TipoDeCarga;
+
 import java.time.LocalDateTime;
 
 public record DatosRegistrarDespacho(
         Long idMovimiento,
+//        Movimiento idMovimiento,
         Long idConductor,
         Long idRegistroInventario,
         String billOfLading,

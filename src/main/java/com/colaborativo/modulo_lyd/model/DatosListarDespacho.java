@@ -1,6 +1,7 @@
-package com.colaborativo.modulo_lyd.model.despacho;
+package com.colaborativo.modulo_lyd.model;
 
-import com.colaborativo.modulo_lyd.model.conductor.Conductor;
+import com.colaborativo.modulo_lyd.entities.Despacho;
+import com.colaborativo.modulo_lyd.enums.TipoDeCarga;
 
 import java.time.LocalDateTime;
 
